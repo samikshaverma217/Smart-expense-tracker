@@ -335,6 +335,7 @@ with note_col:
     )
 
 month_start, month_end = month_bounds(selected_month)
+all_expenses["Date"] = pd.to_datetime(all_expenses["Date"], errors="coerce")
 monthly = all_expenses[
     (all_expenses["Date"].dt.date >= month_start)
     & (all_expenses["Date"].dt.date <= month_end)
